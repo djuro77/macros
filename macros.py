@@ -6,6 +6,8 @@ from tkinter import filedialog
 from tkinter import messagebox
 from threading import Thread
 import pickle
+import re
+
 
 snippets = [
     {'code':'', 'value':''},
@@ -28,10 +30,11 @@ def typer(char):
     keyboard.release(char)
 
 
+
 # DB
 def pickle_out(file_name):
     """Exports buttons snippets to .pkl file"""
-    with open(f"{file_name}.pkl", "wb") as output:
+    with open(f"{file_name}", "wb") as output:
         pickle.dump(snippets, output, pickle.HIGHEST_PROTOCOL)
 
 
@@ -157,8 +160,9 @@ def command_import():
     update_snippets_menu()
 
 def command_export():
-    file_name = filedialog.asksaveasfilename(initialdir = "./", title = "Select file")
+    file_name = filedialog.asksaveasfilename(initialdir = "./", title = "Select file",filetypes = (("pkl files","*.pkl"),("all files","*.*")))
     if file_name != "":
+        file_name = file_name + '.pkl'
         pickle_out(file_name)
 
 
