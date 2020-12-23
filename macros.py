@@ -9,6 +9,8 @@ import pickle
 import re
 
 
+### FIX VENV !
+
 snippets = [
     {'code':'', 'value':''},
 ]

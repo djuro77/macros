@@ -1,0 +1,17 @@
+## if venv <notetool_venv> present
+Scripts\activate
+
+## install requirements -- if there is no or new venv
+pip install -r requirements.txt
+
+	## python venv
+	python -m pip freeze -r requirements.txt
+
+
+## test app from the env
+python macros.py
+
+## compile with pyinstller
+pyinstaller --noconsole --onefile macros.py
+
+
